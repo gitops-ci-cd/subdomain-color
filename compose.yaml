@@ -15,5 +15,7 @@ services:
         - action: sync+restart
           path: ./nginx/html/
           target: /usr/share/nginx/html/
+    environment:
+      - NGINX_PORT=8080
     ports:
-      - 80:80
+      - ${NGINX_PORT:-8080}:${NGINX_PORT:-8080}
